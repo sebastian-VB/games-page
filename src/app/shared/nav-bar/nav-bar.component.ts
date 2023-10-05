@@ -15,9 +15,7 @@ export class NavBarComponent {
   flatNav!: boolean;
 
   constructor(private buttonSidebar: ShowOrHideSidebarService){
-    this.buttonSidebar.getValueShowOrHidesb().subscribe(value=>{
-      console.log(`Valor del showOrHideSide en nav bar c${value}`);
-    });
+
   }
 
   onShowSidebar(): void{

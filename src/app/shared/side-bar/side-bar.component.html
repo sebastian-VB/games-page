@@ -1,19 +1,14 @@
-<div class=" h-screen flex" >
-    <div class=" h-screen w-48 bg-slate-800 border-r-2 border-slate-700 scr">
-        <p>Lorem ipsum dolor</p>
-        <p>Lorem ipsum dolor</p>
-        <p>Lorem ipsum dolor</p>
-        <p>Lorem ipsum dolor</p>
-        <p>Lorem ipsum dolor</p>
-        <p>Lorem ipsum dolor</p>
-        <p>Lorem ipsum dolor</p>
-        <p>Lorem ipsum dolor</p>
-        <p>Lorem ipsum dolor</p>
-        <p>Lorem ipsum dolor</p>
+<section class=" h-screen flex" >
+    <div class=" h-screen w-60 bg-slate-800 border-r-2 border-slate-700 m-3 flex flex-col items-center">
+        <img src="../../../assets/img/freetogame-logo.png" class="w-64 mb-4">
+        <div class="text-center m-3 mb-4 overflow-auto container-categories">
+            <h3 class="text-white font-bold mb-3">Categorías</h3>
+            <p *ngFor="let category of gameCategory" class="text-gray-400 w-60 p-3 mb-1 text-start cursor-pointer hover:bg-slate-600 hover:text-white hover:font-semibold">{{category}}</p>
+        </div>
     </div>
     <div class="pt-5 px-3 lg:hidden">
         <button (click)="onHideSideBar()">
             <img src="../../../assets/icons/close.png" class="h-4 imgClose">
         </button>
     </div>
-</div>
+</section>
