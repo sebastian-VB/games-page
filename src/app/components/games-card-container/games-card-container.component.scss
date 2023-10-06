@@ -1,0 +1,18 @@
+
+.card-container-games{
+    background-color: rgb(14, 23, 46);
+    transition: transform .3s;
+}
+
+.card-container-games:hover{
+    transform: scale(1.03);
+}
+
+.btnAddGame{
+    transition: transform .3s;
+}
+
+.btnAddGame:hover{
+    transform: scale(1.4);
+}
+
