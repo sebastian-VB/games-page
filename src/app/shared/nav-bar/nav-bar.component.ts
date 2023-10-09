@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SideBarComponent } from '../side-bar/side-bar.component';
-import { ShowOrHideSidebarService } from '../services/show-or-hide-sidebar.service';
+import { ShowOrHideSidebarService } from '../../global/services/show-or-hide-sidebar.service';
 
 @Component({
   selector: 'app-nav-bar',

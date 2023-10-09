@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShowOrHideSidebarService } from '../services/show-or-hide-sidebar.service';
+import { ShowOrHideSidebarService } from '../../global/services/show-or-hide-sidebar.service';
 
 @Component({
   selector: 'app-side-bar',
