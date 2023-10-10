@@ -7,6 +7,7 @@ import { GamesCardContainerComponent } from 'src/app/pages/home-page/components/
 import { Game } from 'src/app/global/interfaces/game.interface';
 import { ListGamesService } from 'src/app/global/services/list-games.service';
 import { SelectSortByGamesComponent } from './components/select-sort-by-games/select-sort-by-games.component';
+import { SelectPlatformComponent } from './components/select-platform/select-platform.component';
 
 @Component({
   selector: 'app-home-page',
@@ -16,7 +17,8 @@ import { SelectSortByGamesComponent } from './components/select-sort-by-games/se
     NavBarComponent, 
     SideBarComponent, 
     GamesCardContainerComponent,
-    SelectSortByGamesComponent
+    SelectSortByGamesComponent,
+    SelectPlatformComponent
   ],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
