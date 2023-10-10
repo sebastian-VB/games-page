@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ShowOrHideSidebarService {
 
   private showOrHidesb: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);

@@ -1,11 +1,11 @@
 
 .card-container-games{
     background-color: rgb(14, 23, 46);
-    transition: transform .3s;
+    transition: background-color .3s;
 }
 
 .card-container-games:hover{
-    transform: scale(1.03);
+    background-color: rgb(25, 41, 85);
 }
 
 .btnAddGame{
@@ -14,5 +14,11 @@
 
 .btnAddGame:hover{
     transform: scale(1.4);
+}
+
+@media (min-width: 768px) {
+    .card-container-games {
+        width: 280px
+    }
 }
 

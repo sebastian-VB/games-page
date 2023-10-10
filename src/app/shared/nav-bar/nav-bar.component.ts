@@ -19,8 +19,7 @@ export class NavBarComponent {
   }
 
   onShowSidebar(): void{
-    const currenValue = this.buttonSidebar.getValueShowOrHidesb();
-    currenValue.subscribe(value => this.flatNav = !value);
+    const currenValue = this.buttonSidebar.getValueShowOrHidesb().subscribe(value => this.flatNav = !value);
     this.buttonSidebar.setValueShowOrHidesb(this.flatNav);
   }
 
