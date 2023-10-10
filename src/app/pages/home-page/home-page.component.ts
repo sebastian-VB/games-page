@@ -6,6 +6,7 @@ import { SideBarComponent } from 'src/app/shared/side-bar/side-bar.component';
 import { GamesCardContainerComponent } from 'src/app/pages/home-page/components/games-card-container/games-card-container.component';
 import { Game } from 'src/app/global/interfaces/game.interface';
 import { ListGamesService } from 'src/app/global/services/list-games.service';
+import { SelectSortByGamesComponent } from './components/select-sort-by-games/select-sort-by-games.component';
 
 @Component({
   selector: 'app-home-page',
@@ -14,7 +15,8 @@ import { ListGamesService } from 'src/app/global/services/list-games.service';
     CommonModule, 
     NavBarComponent, 
     SideBarComponent, 
-    GamesCardContainerComponent
+    GamesCardContainerComponent,
+    SelectSortByGamesComponent
   ],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
@@ -22,7 +24,7 @@ import { ListGamesService } from 'src/app/global/services/list-games.service';
 export class HomePageComponent implements OnInit{
 
   showSideC!: boolean;
-  listGames!: Game[];
+  listAllGames!: Game[];
 
   constructor(private buttonSidebar: ShowOrHideSidebarService, private listGameSvc: ListGamesService){
     this.buttonSidebar.getValueShowOrHidesb().subscribe(value=>{
@@ -33,8 +35,8 @@ export class HomePageComponent implements OnInit{
   ngOnInit(): void {
     this.listGameSvc.getListGames().subscribe(
       (value: Game[]) => {
-        this.listGames = value;
-        console.log(this.listGames);
+        this.listAllGames = value;
+        console.log(this.listAllGames);
       }
     );
   }
