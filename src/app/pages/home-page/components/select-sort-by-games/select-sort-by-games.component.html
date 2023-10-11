@@ -1,6 +1,6 @@
 <div>
     <label for="sort" class=" text-gray-400 font-medium">Ordenar por: </label>
-    <select name="sort" id="sort" class="h-full rounded-md bg-transparent py-0 pl-2 pr-7 text-white focus:ring-2 sm:text-sm">
+    <select name="sort" id="sort" (change)="onSelectOption($event)" class="h-full rounded-md bg-transparent py-0 pl-2 pr-7 text-white focus:ring-2 sm:text-sm">
         <option class="text-gray-800" value="relevance">Relevance</option>
         <option class="text-gray-800" value="popularity">Popularity</option>
         <option class="text-gray-800" value="relase-date">Release Date</option>

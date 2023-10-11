@@ -7,20 +7,14 @@ import { Game } from 'src/app/global/interfaces/game.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class ListGamesByCategoryService {
+export class SortLisGamesService {
 
   constructor(private http: HttpClient) { }
 
-  getListGame(): Observable<Game[]>{
+  getSortListGames(sort: string): Observable<Game[]>{
 
-    return this.http.get<Game[]>(mainUrl);
-  }
+    const params = new HttpParams().set('sort-by', sort);
 
-  getListGameByCategory(category: string): Observable<Game[]>{
-
-    const params = new HttpParams().set('category', category);
     return this.http.get<Game[]>(mainUrl, {params});
-    
   }
-
 }

@@ -33,7 +33,7 @@ export class SideBarComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.listGameByCategorySvc.getListGame(mainUrl).subscribe(
+    this.listGameByCategorySvc.getListGame().subscribe(
       (value: Game[]) => this.listGameSvc.setListGames(value)
     );
   }
@@ -47,7 +47,7 @@ export class SideBarComponent implements OnInit{
 
   getCategoryName(category: string): void{
     console.log(category);
-    this.listGameByCategorySvc.getListGame(`${mainUrl}?category=${category}`).subscribe(
+    this.listGameByCategorySvc.getListGameByCategory(category).subscribe(
       (value: Game[]) => this.listGameSvc.setListGames(value)
     );
     this.onHideSideBar();

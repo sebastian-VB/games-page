@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Game } from '../interfaces/game.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ListGamesService {
 
   private listGames: BehaviorSubject<Game[]> = new BehaviorSubject<Game[]>([]);
