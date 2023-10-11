@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { ShowOrHideSidebarService } from './global/services/show-or-hide-sidebar.service';
-import { ListGamesService } from './global/services/list-games.service';
+import { ShowOrHideSidebarService } from './global/state/show-or-hide-sidebar.service';
+import { ListGamesService } from './global/state/list-games.service';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo: 'home_page'},

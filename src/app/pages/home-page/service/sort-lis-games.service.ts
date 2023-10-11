@@ -17,4 +17,13 @@ export class SortLisGamesService {
 
     return this.http.get<Game[]>(mainUrl, {params});
   }
+
+  getSortListGamesByCatgeory(category: string, sort: string): Observable<Game[]>{
+    
+    const params = new HttpParams()
+    .set('category', category)
+    .set('sort-by', sort);
+
+    return this.http.get<Game[]>(mainUrl, {params});
+  }
 }

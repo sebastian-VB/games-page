@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShowOrHideSidebarService } from '../../global/services/show-or-hide-sidebar.service';
+import { ShowOrHideSidebarService } from '../../global/state/show-or-hide-sidebar.service';
 import { ListGamesByCategoryService } from './service/list-games-by-category.service';
-import { mainUrl } from 'src/app/global/endpoints';
-import { ListGamesService } from 'src/app/global/services/list-games.service';
+import { ListGamesService } from 'src/app/global/state/list-games.service';
 import { Game } from 'src/app/global/interfaces/game.interface';
+import { CategoryNameService } from 'src/app/global/state/category-name.service';
+import { OrderWhitCategoryService } from 'src/app/global/state/order-whit-category.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -17,7 +18,7 @@ export class SideBarComponent implements OnInit{
 
   flatSide!: boolean;
   gameCategory:string[] = [
-    "mmorpg", "shooter", "strategy", "moba", "racing", "sports", "social",
+    "all","mmorpg", "shooter", "strategy", "moba", "racing", "sports", "social",
     "sandbox", "open-world", "survival", "pvp", "pve", "pixel", "voxel",
     "zombie", "turn-based", "first-person", "third-Person", "top-down", "tank",
     "space", "sailing", "side-scroller", "superhero", "permadeath", "card",
@@ -29,7 +30,9 @@ export class SideBarComponent implements OnInit{
   constructor(
     private buttonSidebar: ShowOrHideSidebarService, 
     private listGameByCategorySvc: ListGamesByCategoryService,
-    private listGameSvc: ListGamesService
+    private listGameSvc: ListGamesService,
+    private categoryNameSvc: CategoryNameService,
+    private orderCategorySvc: OrderWhitCategoryService
   ){}
 
   ngOnInit(): void {
@@ -47,9 +50,20 @@ export class SideBarComponent implements OnInit{
 
   getCategoryName(category: string): void{
     console.log(category);
-    this.listGameByCategorySvc.getListGameByCategory(category).subscribe(
-      (value: Game[]) => this.listGameSvc.setListGames(value)
-    );
+    if(category == 'all'){
+      this.listGameByCategorySvc.getListGame().subscribe(
+        (value: Game[]) => this.listGameSvc.setListGames(value)
+      );
+      this.orderCategorySvc.setSelectCategory(false);
+    }
+    else{
+      this.listGameByCategorySvc.getListGameByCategory(category).subscribe(
+        (value: Game[]) => this.listGameSvc.setListGames(value)
+      );
+      this.categoryNameSvc.setCategory(category);
+      this.orderCategorySvc.setSelectCategory(true);
+    } 
+
     this.onHideSideBar();
   }
 

@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListGamesService } from 'src/app/global/services/list-games.service';
+import { ListGamesService } from 'src/app/global/state/list-games.service';
 import { SortLisGamesService } from '../../service/sort-lis-games.service';
 import { Game } from 'src/app/global/interfaces/game.interface';
+import { CategoryNameService } from 'src/app/global/state/category-name.service';
+import { OrderWhitCategoryService } from 'src/app/global/state/order-whit-category.service';
 
 @Component({
   selector: 'app-select-sort-by-games',
@@ -11,17 +13,34 @@ import { Game } from 'src/app/global/interfaces/game.interface';
   templateUrl: './select-sort-by-games.component.html',
   styleUrls: ['./select-sort-by-games.component.scss']
 })
-export class SelectSortByGamesComponent {
+export class SelectSortByGamesComponent implements OnInit{
+
+  categoryName!: string;
+  isPressCategory!: boolean;
 
   constructor(
     private listGameScv: ListGamesService,
-    private sortListGamesSvc: SortLisGamesService
+    private sortListGamesSvc: SortLisGamesService,
+    private categoryNameSvc: CategoryNameService,
+    private orderCategorySvc: OrderWhitCategoryService
   ){}
 
+  ngOnInit(): void {
+    this.categoryNameSvc.getCategory().subscribe(value => this.categoryName = value);
+    this.orderCategorySvc.getSelectCategory().subscribe(value => this.isPressCategory = value);
+  }
+
   onSelectOption( value: any): void{
-    this.sortListGamesSvc.getSortListGames(value.target.value).subscribe(
-      (value: Game[]) => this.listGameScv.setListGames(value)
-    );
+    if(this.isPressCategory == false){
+      this.sortListGamesSvc.getSortListGames(value.target.value).subscribe(
+        (value: Game[]) => this.listGameScv.setListGames(value)
+      );
+    }
+    else{
+      this.sortListGamesSvc.getSortListGamesByCatgeory(this.categoryName,value.target.value).subscribe(
+        (value: Game[]) => this.listGameScv.setListGames(value)
+      );
+    }
     console.log(value.target.value);
   }  
 
