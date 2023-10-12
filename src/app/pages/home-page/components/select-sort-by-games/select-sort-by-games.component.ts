@@ -31,13 +31,15 @@ export class SelectSortByGamesComponent implements OnInit{
   }
 
   onSelectOption( value: any): void{
+
+    let sortBy = value.target.value;
     if(this.isPressCategory == false){
-      this.sortListGamesSvc.getSortListGames(value.target.value).subscribe(
+      this.sortListGamesSvc.getSortListGames(sortBy).subscribe(
         (value: Game[]) => this.listGameScv.setListGames(value)
       );
     }
     else{
-      this.sortListGamesSvc.getSortListGamesByCatgeory(this.categoryName,value.target.value).subscribe(
+      this.sortListGamesSvc.getSortListGamesByCatgeory(this.categoryName,sortBy).subscribe(
         (value: Game[]) => this.listGameScv.setListGames(value)
       );
     }
