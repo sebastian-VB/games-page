@@ -5,6 +5,7 @@ import { SortLisGamesService } from '../../service/sort-lis-games.service';
 import { Game } from 'src/app/global/interfaces/game.interface';
 import { CategoryNameService } from 'src/app/global/state/category-name.service';
 import { OrderWhitCategoryService } from 'src/app/global/state/order-whit-category.service';
+import { SortByService } from 'src/app/global/state/sort-by.service';
 
 @Component({
   selector: 'app-select-sort-by-games',
@@ -22,7 +23,8 @@ export class SelectSortByGamesComponent implements OnInit{
     private listGameScv: ListGamesService,
     private sortListGamesSvc: SortLisGamesService,
     private categoryNameSvc: CategoryNameService,
-    private orderCategorySvc: OrderWhitCategoryService
+    private orderCategorySvc: OrderWhitCategoryService,
+    private sortBySvc: SortByService
   ){}
 
   ngOnInit(): void {
@@ -33,6 +35,8 @@ export class SelectSortByGamesComponent implements OnInit{
   onSelectOption( value: any): void{
 
     let sortBy = value.target.value;
+    this.sortBySvc.setSortBy(sortBy);
+
     if(this.isPressCategory == false){
       this.sortListGamesSvc.getSortListGames(sortBy).subscribe(
         (value: Game[]) => this.listGameScv.setListGames(value)

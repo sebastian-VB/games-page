@@ -26,4 +26,20 @@ export class FilterListGamesService {
     return this.http.get<Game[]>(mainUrl, { params });
   }
 
+  getListGamesByPlatformAndSortBy(platform: string, sort: string): Observable<Game[]>{
+
+    const params = new HttpParams().set('platform', platform).set('sort-by', sort);
+    return this.http.get<Game[]>(mainUrl, { params });
+  }
+
+  getListGamesByPlatformWhitCategoryAndSortBy(category: string, platform: string, sort: string): Observable<Game[]>{
+
+    const params = new HttpParams()
+      .set('category', category)
+      .set('platform', platform)
+      .set('sort-by', sort);
+    
+    return this.http.get<Game[]>(mainUrl, { params });
+  }
+
 }
