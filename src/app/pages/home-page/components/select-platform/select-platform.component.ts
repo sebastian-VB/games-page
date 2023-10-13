@@ -45,17 +45,6 @@ export class SelectPlatformComponent implements OnInit{
     let platform = value.target.value;
     this.platformSvc.setPlatform(platform);
 
-    // switch(platform){
-    //   case platform == 'All-platform':
-    //     this.platformIsAll();
-    //     break;
-
-    //   case platform != 'All-platform':
-    //     this.platformPcOrWeb(platform);
-    //     break;
-      
-    // }
-
     if(platform == 'All-platform'){
       this.platformIsAll();
     }
@@ -122,18 +111,6 @@ export class SelectPlatformComponent implements OnInit{
         (value: Game[]) => this.listGameSvc.setListGames(value)
       );
     }
-    
-  }
-
-  platformIsAllWhitCategory(): void{
-    
-  }
-
-  platformIsAllWhitSort(): void{
-    
-  }
-
-  platformIsAllWhitSortAndCategory(): void{
     
   }
 
