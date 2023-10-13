@@ -8,6 +8,21 @@
     background-color: rgb(25, 41, 85);
 }
 
+.titleCont{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 182px;
+}
+
+.descriptionCont{
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Establece el número máximo de líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .btnAddGame{
     transition: transform .3s;
 }
