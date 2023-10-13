@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShowOrHideSidebarService } from '../../global/state/show-or-hide-sidebar.service';
-import { ListGamesByCategoryService } from './service/list-games-by-category.service';
+import { ListGamesByCategoryService } from '../service/list-games-by-category.service';
 import { ListGamesService } from 'src/app/global/state/list-games.service';
 import { Game } from 'src/app/global/interfaces/game.interface';
 import { CategoryNameService } from 'src/app/global/state/category-name.service';

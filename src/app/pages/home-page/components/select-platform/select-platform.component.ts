@@ -7,6 +7,8 @@ import { OrderWhitCategoryService } from 'src/app/global/state/order-whit-catego
 import { Game } from 'src/app/global/interfaces/game.interface';
 import { SortByService } from 'src/app/global/state/sort-by.service';
 import { PlatformService } from 'src/app/global/state/platform.service';
+import { SortLisGamesService } from '../../service/sort-lis-games.service';
+import { ListGamesByCategoryService } from 'src/app/shared/service/list-games-by-category.service';
 
 @Component({
   selector: 'app-select-platform',
@@ -26,6 +28,8 @@ export class SelectPlatformComponent implements OnInit{
     private categoryNameSvc: CategoryNameService,
     private orderCategorySvc: OrderWhitCategoryService,
     private filterListGameSvc: FilterListGamesService,
+    private sortListGamesSvc: SortLisGamesService,
+    private listGamesByCategorySvc: ListGamesByCategoryService,
     private sortBySvc: SortByService,
     private platformSvc: PlatformService
   ){}
@@ -41,6 +45,28 @@ export class SelectPlatformComponent implements OnInit{
     let platform = value.target.value;
     this.platformSvc.setPlatform(platform);
 
+    // switch(platform){
+    //   case platform == 'All-platform':
+    //     this.platformIsAll();
+    //     break;
+
+    //   case platform != 'All-platform':
+    //     this.platformPcOrWeb(platform);
+    //     break;
+      
+    // }
+
+    if(platform == 'All-platform'){
+      this.platformIsAll();
+    }
+    if(platform != 'All-platform'){
+      this.platformPcOrWeb(platform);
+    }
+    
+    console.log(value.target.value);
+  }
+
+  platformPcOrWeb(platform: string): void{
     if(this.sortBy == ""){
       if(this.isPressCategory == false){
         console.log("platform");
@@ -69,9 +95,47 @@ export class SelectPlatformComponent implements OnInit{
         );
       }
     }
+  }
 
+  platformIsAll(): void{
+
+    if(this.categoryName == "" && this.sortBy == ""){
+      this.listGamesByCategorySvc.getListGame().subscribe(
+        (value: Game[]) => this.listGameSvc.setListGames(value)
+      );
+    }
+
+    if(this.categoryName == "" && this.sortBy != ""){
+      this.sortListGamesSvc.getSortListGames(this.sortBy).subscribe(
+        (value: Game[]) => this.listGameSvc.setListGames(value)
+      );
+    }
+
+    if(this.categoryName != "" && this.sortBy == ""){
+      this.listGamesByCategorySvc.getListGameByCategory(this.categoryName).subscribe(
+        (value: Game[]) => this.listGameSvc.setListGames(value)
+      );
+    }
+
+    if(this.categoryName != "" && this.sortBy != ""){
+      this.sortListGamesSvc.getSortListGamesByCatgeory(this.categoryName,this.sortBy).subscribe(
+        (value: Game[]) => this.listGameSvc.setListGames(value)
+      );
+    }
     
-    console.log(value.target.value);
+  }
+
+  platformIsAllWhitCategory(): void{
+    
+  }
+
+  platformIsAllWhitSort(): void{
+    
+  }
+
+  platformIsAllWhitSortAndCategory(): void{
+    
   }
 
 }
+
