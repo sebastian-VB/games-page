@@ -4,5 +4,6 @@ import { ListGamesService } from './global/state/list-games.service';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo: 'home_page'},
-    {path: 'home_page', providers: [ShowOrHideSidebarService, ListGamesService], loadComponent: ()=> import('./pages/home-page/home-page.component').then(comp => comp.HomePageComponent)}
+    {path: 'home_page', providers: [ShowOrHideSidebarService, ListGamesService], loadComponent: ()=> import('./pages/home-page/home-page.component').then(comp => comp.HomePageComponent)},
+    {path: 'game-details/:gameId', loadComponent: ()=> import('./pages/game-details/game-details.component').then(comp => comp.GameDetailsComponent)}
 ];
