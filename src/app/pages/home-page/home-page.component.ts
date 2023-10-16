@@ -43,7 +43,7 @@ export class HomePageComponent implements OnInit{
     this.listGameSvc.getListGames().subscribe(
       (value: Game[]) => {
         this.listAllGames = value;
-        console.log(this.listAllGames);
+        // console.log(this.listAllGames);
       }
     );
   }
