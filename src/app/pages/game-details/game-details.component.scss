@@ -1,4 +1,10 @@
 
+.content-screen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 
 @media(min-width: 768px){
     .info-aditional{
@@ -8,5 +14,11 @@
     }
     .text-p{
         max-width: 190px;
+    }
+
+    .content-screen{
+        display: flex;
+        flex-flow: row wrap;
+        gap: 20px;
     }
 }

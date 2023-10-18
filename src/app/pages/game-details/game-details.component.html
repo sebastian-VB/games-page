@@ -1,84 +1,86 @@
 <div class="p-5">
-    <section class="max-w-6xl mx-auto mt-5 flex flex-col items-center md:flex-row ">
-        <img src="https://www.freetogame.com/g/521/thumbnail.jpg">
-        <div class="py-5 flex flex-col gap-2 items-center w-full md:items-start md:ml-10">
-            <h1 class="text-white text-3xl font-extrabold">Diablo Inmortal</h1>
-            <!-- <a href="" target="_blank" class="text-stone-500 hover:text-stone-400">Obtener juego</a> -->
-            <a href="" target="_blank" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-black dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">Obtener juego</a>
-        </div>
-    </section>
-    <section class="max-w-6xl mx-auto mt-7">
-        <div>
-            <h3 class="text-gray-300 font-semibold text-2xl pb-3">Descripción</h3>
-            <p class="text-justify text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima odit quis eum tempora laudantium! Consectetur, explicabo ipsam quam officiis aliquid debitis doloremque culpa minima ullam voluptatibus! Officia quo cum labore. Incidunt optio obcaecati architecto. Eos nam qui sit, tenetur delectus architecto, nisi, rem facere cumque placeat sed. Facilis reprehenderit repellat soluta qui quibusdam eligendi odio alias voluptas sit numquam ducimus, fugit ipsum neque. Necessitatibus amet laudantium modi alias accusamus a, provident ullam maiores magnam assumenda unde consequuntur harum rerum quod, consequatur illum nostrum fugit labore quisquam dicta molestiae illo repudiandae. Vitae illum ut est? At doloribus aliquid nemo dolore corrupti error laborum temporibus tenetur, esse, odit commodi, laboriosam quaerat maiores nisi quae accusamus amet reiciendis magnam aliquam quidem necessitatibus. Nihil amet adipisci, voluptas molestias error tenetur asperiores repudiandae nemo possimus laboriosam ullam ipsa facere, delectus harum praesentium vero voluptate illo optio nisi sint repellat. Perferendis est quam a! Minima saepe quibusdam modi dolorem sunt assumenda quos labore eveniet adipisci quaerat doloremque sed eaque quo deleniti, enim blanditiis, explicabo nihil perspiciatis voluptas molestias, ea exercitationem. Doloremque quaerat eum cupiditate nulla, impedit similique reiciendis iure sequi non doloribus maiores, unde vero iste voluptatem, ipsam quod placeat earum in cum voluptatibus sint officiis!</p>
-        </div>
-        <div class="my-7">
-            <h3 class="text-gray-300 font-semibold text-2xl pb-3">Información adicional</h3>
-            <div class="info-aditional">
-                <div>
-                    <div>
-                        <p class="text-gray-500">Title</p>
-                        <p class="text-gray-400 font-medium text-p">Lorem ipsum dolor sit, amet consectetur </p>
-                    </div>
-                    <div>
-                        <p class="text-gray-500">Release Date</p>
-                        <p class="text-gray-400 font-medium text-p">Lorem, ipsum.</p>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <p class="text-gray-500">Developer</p>
-                        <p class="text-gray-400 font-medium text-p">Lorem, ipsum dolor.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-500">Genre</p>
-                        <p class="text-gray-400 font-medium text-p">Lorem.</p>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <p class="text-gray-500">Publisher</p>
-                        <p class="text-gray-400 font-medium text-p">Lorem, ipsum dolor.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-500">Platform</p>
-                        <p class="text-gray-400 font-medium text-p">Lorem, ipsum.</p>
-                    </div>
-                </div>
+    <ng-container *ngIf="gameDetails != null">
+
+        <section class="max-w-6xl mx-auto mt-5 flex flex-col items-center md:flex-row ">
+            <img [src]="gameDetails.thumbnail">
+            <div class="py-5 flex flex-col gap-2 items-center w-full md:items-start md:ml-10">
+                <h1 class="text-white text-3xl font-extrabold">{{gameDetails.title}}</h1>
+                <!-- <a href="" target="_blank" class="text-stone-500 hover:text-stone-400">Obtener juego</a> -->
+                <a href="" target="_blank" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-black dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">Obtener juego</a>
             </div>
-        </div>
-        <div>
-            <h3 class="text-gray-300 font-semibold text-2xl pb-3">Screenshots</h3>
+        </section>
+        <section class="max-w-6xl mx-auto mt-7">
             <div>
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
+                <h3 class="text-gray-300 font-semibold text-2xl pb-3">Descripción</h3>
+                <p class="text-justify text-gray-400">{{gameDetails.description}}</p>
             </div>
-        </div>
-        <div class="my-7">
-            <h3 class="text-gray-300 font-semibold text-2xl pb-3">Requerimientos mínimos del sistema</h3>
-            <div class="info-aditional">
-                <div>
-                    <p class="text-gray-500">OS</p>
-                    <p class="text-gray-400 font-medium text-p">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <div>
-                    <p class="text-gray-500">Memoria</p>
-                    <p class="text-gray-400 font-medium text-p">Lorem.</p>
-                </div>
-                <div>
-                    <p class="text-gray-500">Procesador</p>
-                    <p class="text-gray-400 font-medium text-p">Lorem ipsum dolor sit.</p>
-                </div>
-                <div>
-                    <p class="text-gray-500">Gráficos</p>
-                    <p class="text-gray-400 font-medium text-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-                <div>
-                    <p class="text-gray-500">Storage</p>
-                    <p class="text-gray-400 font-medium text-p">Lorem.</p>
+            <div class="my-7">
+                <h3 class="text-gray-300 font-semibold text-2xl pb-3">Información adicional</h3>
+                <div class="info-aditional">
+                    <div class="flex flex-col gap-3">
+                        <div>
+                            <p class="text-gray-500">Title</p>
+                            <p class="text-gray-400 font-medium text-p">{{gameDetails.title}}</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500">Release Date</p>
+                            <p class="text-gray-400 font-medium text-p">{{gameDetails.release_date}}</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div>
+                            <p class="text-gray-500">Developer</p>
+                            <p class="text-gray-400 font-medium text-p">{{gameDetails.developer}}</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500">Genre</p>
+                            <p class="text-gray-400 font-medium text-p">{{gameDetails.genre}}</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div>
+                            <p class="text-gray-500">Publisher</p>
+                            <p class="text-gray-400 font-medium text-p">{{gameDetails.publisher}}</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500">Platform</p>
+                            <p class="text-gray-400 font-medium text-p">{{gameDetails.platform}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div>
+                <h3 class="text-gray-300 font-semibold text-2xl pb-3">Screenshots</h3>
+                <div class="content-screen">
+                    <img *ngFor="let screenshot of gameDetails.screenshots" [src]="screenshot.image" class="w-80">
+                </div>
+            </div>
+            <div class="my-7" *ngIf="gameDetails.platform != 'Web Browser'">
+                <h3 class="text-gray-300 font-semibold text-2xl pb-3">Requerimientos mínimos del sistema</h3>
+                <div class="info-aditional">
+                    <div>
+                        <p class="text-gray-500">OS</p>
+                        <p class="text-gray-400 font-medium text-p">{{gameDetails.minimum_system_requirements.os}}</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500">Memoria</p>
+                        <p class="text-gray-400 font-medium text-p">{{gameDetails.minimum_system_requirements.memory}}</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500">Procesador</p>
+                        <p class="text-gray-400 font-medium text-p">{{gameDetails.minimum_system_requirements.processor}}</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500">Gráficos</p>
+                        <p class="text-gray-400 font-medium text-p">{{gameDetails.minimum_system_requirements.graphics}}</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500">Storage</p>
+                        <p class="text-gray-400 font-medium text-p">{{gameDetails.minimum_system_requirements.storage}}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </ng-container>
 </div>
