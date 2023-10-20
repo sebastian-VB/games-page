@@ -1,8 +1,8 @@
-<section class=" w-full fixed flex gap-4 px-5 pt-5 lg:ml-56 bg-gray-800 pb-5">
+<section class=" w-full fixed flex gap-4 px-5 pt-5 lg:ml-56 bg-gray-800 pb-5 items-center">
     <button (click)="onShowSidebar()">
         <img src="../../../assets/icons/menu.png" class="w-8 lg:hidden imgMenu">
     </button>
-    <label class="relative block w-full">
+    <label class="relative block w-full contentInput">
         <span class="sr-only">Search</span>
         <span class="absolute inset-y-0 left-0 flex items-center pl-2">
         <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20">
@@ -11,5 +11,11 @@
         </span>
         <input class=" placeholder:text-slate-400 block bg-gray-800 w-full text-white border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-gray-800 focus:ring-gray-800 focus:ring-1 sm:text-sm" placeholder="Search games" type="text" name="search"/>
     </label>
+    <div class="flex relative mt-2">
+        <button class="">
+            <img src="../../../assets/icons/carro-de-la-compra.png" class="w-12 imgMenu">
+        </button>
+        <span class="totalGames">500</span>
+    </div>
 </section>
 
