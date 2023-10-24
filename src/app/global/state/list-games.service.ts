@@ -5,16 +5,16 @@ import { Game } from '../interfaces/game.interface';
 @Injectable()
 export class ListGamesService {
 
-  private listGames: BehaviorSubject<Game[]> = new BehaviorSubject<Game[]>([]);
+  private _listGames: BehaviorSubject<Game[]> = new BehaviorSubject<Game[]>([]);
 
   constructor() { }
 
   getListGames(): Observable<Game[]>{
-    return this.listGames.asObservable();
+    return this._listGames.asObservable();
   }
 
   setListGames(listG: Game[]): void{
-    this.listGames.next(listG);
+    this._listGames.next(listG);
   }
 
 }
