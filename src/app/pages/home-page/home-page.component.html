@@ -9,7 +9,7 @@
     </div>
     <div class="containerListGames gap-7">
         <ng-container *ngIf="listAllGames !== null">
-            <app-games-card-container *ngFor="let game of listAllGames" [gameInfo]="game" (click)="getGameId(game.id)"></app-games-card-container>
+            <app-games-card-container *ngFor="let game of listAllGames" [gameInfo]="game"></app-games-card-container>
         </ng-container>
     </div>
 </section>

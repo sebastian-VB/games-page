@@ -8,7 +8,6 @@ import { Game } from 'src/app/global/interfaces/game.interface';
 import { ListGamesService } from 'src/app/global/state/list-games.service';
 import { SelectSortByGamesComponent } from './components/select-sort-by-games/select-sort-by-games.component';
 import { SelectPlatformComponent } from './components/select-platform/select-platform.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -31,8 +30,7 @@ export class HomePageComponent implements OnInit{
 
   constructor(
     private buttonSidebar: ShowOrHideSidebarService, 
-    private listGameSvc: ListGamesService,
-    private router: Router
+    private listGameSvc: ListGamesService
   ){
     this.buttonSidebar.getValueShowOrHidesb().subscribe(value=>{
       this.showSideC  = value;
@@ -43,13 +41,8 @@ export class HomePageComponent implements OnInit{
     this.listGameSvc.getListGames().subscribe(
       (value: Game[]) => {
         this.listAllGames = value;
-        // console.log(this.listAllGames);
       }
     );
-  }
-
-  getGameId(gameId: number): void{
-    this.router.navigate(['game-details', gameId]);
   }
 
 }
