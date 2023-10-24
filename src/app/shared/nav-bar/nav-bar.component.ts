@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SideBarComponent } from '../side-bar/side-bar.component';
 import { ShowOrHideSidebarService } from '../../global/state/show-or-hide-sidebar.service';
+import { FavoriListGamesService } from 'src/app/global/state/favori-list-games.service';
+import { Game } from 'src/app/global/interfaces/game.interface';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,12 +12,23 @@ import { ShowOrHideSidebarService } from '../../global/state/show-or-hide-sideba
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit{
 
   flatNav!: boolean;
+  totalGames: number = 0;
 
-  constructor(private buttonSidebar: ShowOrHideSidebarService){
+  constructor(
+    private buttonSidebar: ShowOrHideSidebarService,
+    private favoriteListeSvc: FavoriListGamesService
+  ){}
 
+  ngOnInit(): void {
+    this.favoriteListeSvc.getFavoriteGames().subscribe(
+      (value: Game[]) =>{
+        this.totalGames = value.length;
+        console.log(this.totalGames);
+      }
+    );
   }
 
   onShowSidebar(): void{
