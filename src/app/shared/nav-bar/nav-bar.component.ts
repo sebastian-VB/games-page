@@ -25,8 +25,7 @@ export class NavBarComponent implements OnInit{
   ngOnInit(): void {
     this.favoriteListeSvc.getFavoriteGames().subscribe(
       (value: Game[]) =>{
-        this.totalGames = value.length;
-        console.log(this.totalGames);
+        this.totalGames = value.length
       }
     );
   }
