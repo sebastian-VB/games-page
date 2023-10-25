@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Game } from 'src/app/global/interfaces/game.interface';
 import { FavoriListGamesService } from 'src/app/global/state/favori-list-games.service';
 import { Router } from '@angular/router';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-games-card-container',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatSnackBarModule],
   templateUrl: './games-card-container.component.html',
   styleUrls: ['./games-card-container.component.scss']
 })
@@ -18,7 +19,8 @@ export class GamesCardContainerComponent implements OnInit{
 
   constructor(
     private favoriteGameSvc: FavoriListGamesService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ){}
 
   ngOnInit(): void {
@@ -53,6 +55,7 @@ export class GamesCardContainerComponent implements OnInit{
       let item = this._favoriteGames[i];
       if(item.id == id){
         isFound = true;
+        this.snackBar.open('El juego ya esta agregado', 'Close');
         break;
       }
       else{
