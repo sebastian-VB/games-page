@@ -21,5 +21,9 @@ export const routes: Routes = [
         path: 'game-details/:gameId', 
         providers: [GetGameByIdService],
         loadComponent: ()=> import('./pages/game-details/game-details.component').then(comp => comp.GameDetailsComponent)
+    },
+    {
+        path: 'favorite-games',
+        loadComponent: ()=> import('./pages/favorite-games/favorite-games.component').then(comp => comp.FavoriteGamesComponent)
     }
 ];
