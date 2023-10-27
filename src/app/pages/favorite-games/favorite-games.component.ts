@@ -24,4 +24,8 @@ export class FavoriteGamesComponent implements OnInit{
       }
     );
   }
+
+  deleteElement(index: number): void{
+    this.favoriteGamesSvc.deleteGame(index);
+  }
 }
