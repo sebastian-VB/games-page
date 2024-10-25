@@ -1,0 +1,15 @@
+<app-nav-bar></app-nav-bar>
+<app-side-bar class="fixed hidden lg:block" [ngClass]="{'hidden':showSideC==false, 'block': showSideC==true}"></app-side-bar>
+
+<section class="px-5 pt-24 pb-20 lg:ml-56 flex flex-col gap-10 items-center">
+    <h1 class="text-white font-bold text-3xl text-center">Top de juegos gratis para PC y Navegador en 2023</h1>
+    <div class="flex flex-col gap-10 sm:flex-row">
+        <app-select-platform></app-select-platform>
+        <app-select-sort-by-games></app-select-sort-by-games>
+    </div>
+    <div class="containerListGames gap-7">
+        <ng-container *ngIf="listAllGames !== null">
+            <app-games-card-container *ngFor="let game of listAllGames" [gameInfo]="game"></app-games-card-container>
+        </ng-container>
+    </div>
+</section>

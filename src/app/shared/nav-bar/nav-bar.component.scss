@@ -1,0 +1,32 @@
+
+.imgMenu{
+    transform: scale(.9);
+    transition: transform .2s;
+}
+
+.imgMenu:hover{
+    transform: scale(1.1);
+}
+
+
+.totalGames{
+    position: absolute;
+    right: -8px;
+    top: -11px;
+    color: yellow;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+@media (min-width: 1024px) {
+    .contentInput{
+        width: 68%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .contentInput{
+        width: 75%;
+    }
+}
