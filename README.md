@@ -1,27 +1,28 @@
 # GamesPage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+- Esta app hace uso de la API de [FreetoGame](https://www.freetogame.com/api-doc).
+- El diseño es realizado con clases de [Tailwind](https://tailwindcss.com/docs).
+- Es adaptable a pantallas mas pequeñas o dispositivos móviles.
 
-## Development server
+## Dev
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Clonar el repositorio y ejecutar ``npm install``.
+- Ejecutar la apalicación con ``ng serve`` o ``npm run start``.
 
-## Code scaffolding
+## Capturas de pantalla
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![image](https://github.com/user-attachments/assets/1dd2cff1-5ea0-4617-ba0f-849cb840227d)
 
-## Build
+![image](https://github.com/user-attachments/assets/2eb18c81-7fd0-4f26-a093-04a43e51a714)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Se pueden realizar filtros
+![image](https://github.com/user-attachments/assets/10944bfa-1cb0-403e-b471-4baecd93e951)
 
-## Running unit tests
+Se añade un juego a una lista de compras
+![image](https://github.com/user-attachments/assets/a885e42c-e3ea-4d2d-840d-b524b2ffc3e0)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Se puede borrar el juego del carrito
+![image](https://github.com/user-attachments/assets/e0a44b1a-50b3-4d98-8ba1-98557a5ac603)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Es adaptable a pantallas mas pequeñas
+![image](https://github.com/user-attachments/assets/096c810b-101c-454b-88b8-fedce6a10ffa)
